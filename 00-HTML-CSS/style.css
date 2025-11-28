@@ -1,0 +1,520 @@
+/*
+    IMPORTANTE: Este CSS es un punto de partida.
+    Para que se vea exactamente igual, tendrías que ajustar colores,
+    tipografías y dimensiones específicas de la imagen original.
+*/
+
+:root {
+    /* Variables de Color (simuladas de la imagen) */
+    --color-dark-bg: #1A1A2E; /* Fondo oscuro principal */
+    --color-card-bg: #2C2C45; /* Fondo de tarjetas */
+    --color-hero-bg: #121223; /* Fondo más oscuro para la sección de perfil */
+    --color-text-light: #F0F0F0; /* Texto claro */
+    --color-text-subtle: #AAAAAA; /* Texto gris sutil */
+    --color-primary: #5BC0EB; /* Azul claro para botones/énfasis */
+    --color-secondary-btn: #3D3D5A; /* Gris oscuro para botón secundario */
+}
+
+/* Base y Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* Usarás una fuente específica como Montserrat en la realidad */
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    padding-top: 60px; /* Espacio para la barra de navegación fija */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+
+h2.section-title {
+    font-size: 2em;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+.navbar {
+    position: fixed; /* Mantiene la barra en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-dark-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-text-light);
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: var(--color-text-subtle);
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- SECCIÓN HERO/INTRO --- */
+.hero-section {
+    /* Imagen de programación de fondo - Sustituir 'programacion_bg.jpg' */
+    background-image: url('./img/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-hero-bg); /* Color de fallback */
+    padding: 80px 0; /* Aumentar el padding para que se vea el fondo */
+    min-height: 500px;
+    /* Oscurecer el fondo para que el texto resalte */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(18, 18, 35, 0.8); /* Capa de color para oscurecer */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Agregamos las propiedades de centrado aquí */
+    display: flex; /* Nuevo: Habilitar flexbox */
+    justify-content: center; /* Nuevo: Centrar horizontalmente */
+    align-items: center; /* Nuevo: Centrar verticalmente si el padding lo permite */
+    height: 100%; /* Asegura que ocupe la altura necesaria para centrar */
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--color-dark-bg); /* Borde para simular la separación */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.text-info h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.text-info h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark-bg);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary-btn);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-secondary-btn);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* --- SECCIÓN SOBRE MÍ (LÍNEA DESVANECIDA) --- */
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent, 
+        var(--color-text-subtle), 
+        transparent
+    );
+    margin: 40px 0;
+}
+
+.about-section {
+    padding: 40px 0;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-text-subtle);
+}
+
+
+/* --- SECCIÓN EXPERIENCIA LABORAL --- */
+.experience-section {
+    padding: 40px 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.exp-card {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    min-height: 150px;
+}
+
+.exp-card:hover {
+    transform: scale(1.05); /* Efecto de hacerse más grande al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.exp-logo {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary); /* Simulación de logo de empresa */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark-bg);
+    font-size: 1.2em;
+}
+
+.exp-details h3 {
+    font-size: 1.1em;
+    margin-bottom: 2px;
+}
+
+.exp-details h4 {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: var(--color-text-subtle);
+}
+
+.exp-description {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    padding-top: 5px;
+    font-size: 0.9em;
+    color: var(--color-text-subtle);
+}
+
+/* Mostrar la descripción al hacer hover/focus */
+.exp-card:hover .exp-description,
+.exp-card:focus .exp-description {
+    max-height: 100px; /* Ajusta según el contenido */
+    opacity: 1;
+}
+
+
+/* --- SECCIÓN FORMACIÓN --- */
+.education-section {
+    padding: 40px 0;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edu-card {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%; /* Las tarjetas son a lo ancho */
+}
+
+.edu-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: var(--color-primary);
+}
+
+.edu-logo.aws-logo svg {
+    width: 40px;
+    height: 40px;
+    color: #FF9900; /* Color naranja de AWS */
+}
+
+.edu-details h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.edu-details h4 {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--color-text-subtle);
+}
+
+
+/* --- SECCIÓN CONOCIMIENTO/SKILLS --- */
+.skills-section {
+    padding: 40px 0;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-card {
+    width: 80px; /* Tamaño pequeño */
+    height: 80px;
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(var(--color-primary), 0.5);
+}
+
+.skill-icon {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.skill-name {
+    font-size: 0.7em;
+    color: var(--color-text-subtle);
+}
+
+
+/* --- SECCIÓN PROYECTOS --- */
+.projects-section {
+    padding: 40px 0 80px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 300px; /* Altura fija para el ejemplo */
+}
+
+.project-card:hover,
+.project-card:focus {
+    transform: scale(1.05); /* Efecto de hacerse más grande */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+    height: 100%; /* La imagen ocupa toda la tarjeta inicialmente */
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.project-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); /* Sombra para el texto */
+    
+    /* Ocultar inicialmente el texto y la descripción */
+    transform: translateY(100%); 
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.project-details h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.project-description {
+    font-size: 0.9em;
+    color: var(--color-text-subtle);
+}
+
+/* ** ESTADO HOVER/FOCUS ** */
+.project-card:hover .project-image,
+.project-card:focus .project-image {
+    transform: scale(1.05); /* Ligero zoom en la imagen */
+}
+
+.project-card:hover .project-details,
+.project-card:focus .project-details {
+    transform: translateY(0); /* Desliza hacia arriba para mostrar */
+    opacity: 1;
+}
+
+
+/* --- FOOTER/CONTACTO --- */
+footer {
+    background-color: var(--color-hero-bg);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    color: var(--color-text-subtle);
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--color-text-light);
+    font-size: 1.8em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Estilos de SVG inline (si usaras el ejemplo del código HTML) */
+.svg-icon {
+    width: 30px;
+    height: 30px;
+    color: var(--color-text-light);
+}
+
+.svg-icon:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+    }
+
+    .navbar nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+}
