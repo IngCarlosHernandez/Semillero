@@ -1,21 +1,15 @@
-/*
-    IMPORTANTE: Este CSS es un punto de partida.
-    Para que se vea exactamente igual, tendrías que ajustar colores,
-    tipografías y dimensiones específicas de la imagen original.
-*/
 
 :root {
-    /* Variables de Color (simuladas de la imagen) */
-    --color-dark-bg: #1A1A2E; /* Fondo oscuro principal */
-    --color-card-bg: #2C2C45; /* Fondo de tarjetas */
-    --color-hero-bg: #121223; /* Fondo más oscuro para la sección de perfil */
-    --color-text-light: #F0F0F0; /* Texto claro */
-    --color-text-subtle: #AAAAAA; /* Texto gris sutil */
-    --color-primary: #5BC0EB; /* Azul claro para botones/énfasis */
-    --color-secondary-btn: #3D3D5A; /* Gris oscuro para botón secundario */
+    --color-dark-bg: #1A1A2E;
+    --color-card-bg: #2C2C45;
+    --color-hero-bg: #121223;
+    --color-text-light: #F0F0F0;
+    --color-text-subtle: #AAAAAA;
+    --color-primary: #5BC0EB;
+    --color-secondary-btn: #3D3D5A;
+    --color-hover-btn: #7205b2;
 }
 
-/* Base y Reset */
 * {
     margin: 0;
     padding: 0;
@@ -23,11 +17,11 @@
 }
 
 body {
-    font-family: sans-serif; /* Usarás una fuente específica como Montserrat en la realidad */
+    font-family: sans-serif;
     background-color: var(--color-dark-bg);
     color: var(--color-text-light);
     line-height: 1.6;
-    padding-top: 60px; /* Espacio para la barra de navegación fija */
+    padding-top: 60px; 
 }
 
 .container {
@@ -52,7 +46,7 @@ h2.section-title {
     text-align: center;
 }
 
-/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+/* - NAVBAR - */
 .navbar {
     position: fixed; /* Mantiene la barra en la parte superior */
     top: 0;
@@ -94,17 +88,15 @@ h2.section-title {
 }
 
 
-/* --- SECCIÓN HERO/INTRO --- */
+/* - HERO SECTION - */
 .hero-section {
-    /* Imagen de programación de fondo - Sustituir 'programacion_bg.jpg' */
     background-image: url('./img/Background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--color-hero-bg); /* Color de fallback */
-    padding: 80px 0; /* Aumentar el padding para que se vea el fondo */
-    min-height: 500px;
-    /* Oscurecer el fondo para que el texto resalte */
+    background-color: var(--color-hero-bg);
+    padding: 80px 0;
+    min-height: 350px;
     position: relative;
     overflow: hidden;
 }
@@ -116,18 +108,17 @@ h2.section-title {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(18, 18, 35, 0.8); /* Capa de color para oscurecer */
+    background: rgba(18, 18, 35, 0.8);
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    /* Agregamos las propiedades de centrado aquí */
-    display: flex; /* Nuevo: Habilitar flexbox */
-    justify-content: center; /* Nuevo: Centrar horizontalmente */
-    align-items: center; /* Nuevo: Centrar verticalmente si el padding lo permite */
-    height: 100%; /* Asegura que ocupe la altura necesaria para centrar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .profile-info {
@@ -141,7 +132,7 @@ h2.section-title {
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid var(--color-dark-bg); /* Borde para simular la separación */
+    border: 5px solid var(--color-dark-bg);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -168,33 +159,26 @@ h2.section-title {
     display: flex;
     gap: 15px;
 }
-
-.btn {
+.btn-cv-download {
+    display: inline-block;
     padding: 10px 20px;
+    margin-top: 15px; 
+    
+    background-color: var(--color-secondary-btn); 
+    color: white; 
+    text-decoration: none; 
     border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-dark-bg);
-}
-
-.btn-secondary {
-    background-color: var(--color-secondary-btn);
-    color: var(--color-text-light);
-    border: 1px solid var(--color-secondary-btn);
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+.btn-cv-download:hover {
+    background-color: var(--color-hover-btn); 
 }
 
 
-/* --- SECCIÓN SOBRE MÍ (LÍNEA DESVANECIDA) --- */
+/* - ABOUT ME SECTION - */
 .divider {
     height: 1px;
     background: linear-gradient(to right, 
@@ -239,8 +223,9 @@ h2.section-title {
     min-height: 150px;
 }
 
+/* Animacion de hover */
 .exp-card:hover {
-    transform: scale(1.05); /* Efecto de hacerse más grande al pasar el mouse */
+    transform: scale(1.05); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -254,7 +239,7 @@ h2.section-title {
 .exp-logo {
     width: 40px;
     height: 40px;
-    background-color: var(--color-primary); /* Simulación de logo de empresa */
+    background-color: var(--color-primary);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -283,15 +268,15 @@ h2.section-title {
     color: var(--color-text-subtle);
 }
 
-/* Mostrar la descripción al hacer hover/focus */
+/* Mostrar la descripción al hacer hover */
 .exp-card:hover .exp-description,
 .exp-card:focus .exp-description {
-    max-height: 100px; /* Ajusta según el contenido */
+    max-height: 100px; 
     opacity: 1;
 }
 
 
-/* --- SECCIÓN FORMACIÓN --- */
+/* - SECCIÓN FORMACIÓN - */
 .education-section {
     padding: 40px 0;
 }
@@ -309,7 +294,7 @@ h2.section-title {
     display: flex;
     align-items: center;
     gap: 20px;
-    width: 100%; /* Las tarjetas son a lo ancho */
+    width: 100%; 
 }
 
 .edu-logo {
@@ -322,11 +307,11 @@ h2.section-title {
     color: var(--color-primary);
 }
 
-.edu-logo.aws-logo svg {
+/* .edu-logo.aws-logo svg {
     width: 40px;
     height: 40px;
-    color: #FF9900; /* Color naranja de AWS */
-}
+    color: #FF9900; 
+} */
 
 .edu-details h3 {
     font-size: 1.2em;
@@ -353,7 +338,7 @@ h2.section-title {
 }
 
 .skill-card {
-    width: 80px; /* Tamaño pequeño */
+    width: 80px; 
     height: 80px;
     background-color: var(--color-card-bg);
     border-radius: 10px;
@@ -400,17 +385,18 @@ h2.section-title {
     position: relative;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    height: 300px; /* Altura fija para el ejemplo */
+    height: 300px; 
 }
+
 
 .project-card:hover,
 .project-card:focus {
-    transform: scale(1.05); /* Efecto de hacerse más grande */
+    transform: scale(1.05); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .project-image {
-    height: 100%; /* La imagen ocupa toda la tarjeta inicialmente */
+    height: 100%; 
     background-size: cover;
     background-position: center;
     transition: transform 0.5s;
@@ -426,7 +412,7 @@ h2.section-title {
     left: 0;
     width: 100%;
     padding: 15px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); /* Sombra para el texto */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); 
     
     /* Ocultar inicialmente el texto y la descripción */
     transform: translateY(100%); 
@@ -444,15 +430,15 @@ h2.section-title {
     color: var(--color-text-subtle);
 }
 
-/* ** ESTADO HOVER/FOCUS ** */
+/* ** ESTADO HOVER ** */
 .project-card:hover .project-image,
 .project-card:focus .project-image {
-    transform: scale(1.05); /* Ligero zoom en la imagen */
+    transform: scale(1.05); 
 }
 
 .project-card:hover .project-details,
 .project-card:focus .project-details {
-    transform: translateY(0); /* Desliza hacia arriba para mostrar */
+    transform: translateY(0); 
     opacity: 1;
 }
 
@@ -486,7 +472,7 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Estilos de SVG inline (si usaras el ejemplo del código HTML) */
+
 .svg-icon {
     width: 30px;
     height: 30px;
